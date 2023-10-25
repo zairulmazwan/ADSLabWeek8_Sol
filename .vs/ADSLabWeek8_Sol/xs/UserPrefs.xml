@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{6D4399C8-7C46-4356-A637-51E8E104C30A}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ADSLabWeek8__Sol PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ADSLabWeek8_Sol/Heap.cs">
+    <Files>
+      <File FileName="ADSLabWeek8_Sol/Program.cs" Line="38" Column="19" />
+      <File FileName="ADSLabWeek8_Sol/Heap.cs" Line="119" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ADSLabWeek8_Sol" expanded="True">
+            <Node name="ADSLabWeek8_Sol" expanded="True">
+              <Node name="Heap.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
