@@ -80,15 +80,6 @@ public class HeapOrder {
         }
     }
 
-
-    // returns the  maximum item of the heap
-    public Order getMax()
-    {
-        //write your code here!
-        return heap[0];
-
-    }
-
     public Order getMin()
     {
         //write your code here!
