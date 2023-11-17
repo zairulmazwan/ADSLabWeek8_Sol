@@ -1,12 +1,12 @@
 
-public class Heap {
+public class HeapOrder {
 	
 	private const int MAX_SIZE = 10;
-    static int [] heap;
+    static Order [] heap;
     static int size;
     
-    public Heap() {
-        heap = new int[MAX_SIZE];
+    public HeapOrder() {
+        heap = new Order[MAX_SIZE];
         size = 0;
     }
     
@@ -26,7 +26,7 @@ public class Heap {
     }
     
     // insert the item at the appropriate position
-    public void insert(int data) {
+    public void insert(Order data) {
         if (size >= MAX_SIZE) {
             Console.WriteLine("The heap is full. Cannot insert");
             return;
@@ -40,67 +40,32 @@ public class Heap {
 
         // move up until the heap property satisfies
         int i = size - 1;
-        while (i != 0 && heap[i]>heap[Heap.parent(i)]) {
-            int temp = heap[i];
-            heap[i] = heap[Heap.parent(i)];
-            heap[Heap.parent(i)] = temp;
-            i = Heap.parent(i);
+        while (i != 0 && heap[i].priority<heap[HeapOrder.parent(i)].priority) {
+            Order temp = heap[i];
+            heap[i] = heap[HeapOrder.parent(i)];
+            heap[HeapOrder.parent(i)] = temp;
+            i = HeapOrder.parent(i);
         }
-    }
-    
-    // moves the item at position i of array a
-    // into its appropriate position
-    public static void maxHeapify(int i){
-        // find left child node
-        int left = Heap.leftChild(i);
-
-        // find right child node
-        int right = Heap.rightChild(i);
-
-        // find the largest among 3 nodes
-        int largest = i;
-
-        // check if the left node is larger than the current node
-        if (left <= size && heap[left] > heap[largest]) {
-            largest = left;
-        }
-
-        // check if the right node is larger than the current node 
-        // and left node
-        if (right <= size && heap[right] > heap[largest]) {
-            largest = right;
-        }
-
-        // swap the largest node with the current node 
-        // and repeat this process until the current node is larger than 
-        // the right and the left node
-        if (largest != i) {
-            int temp = heap[i];
-            heap[i] = heap[largest];
-            heap[largest] = temp;
-            maxHeapify(largest);
-        }
-
     }
 
     public static void minHeapify(int i){
         // find left child node
-        int left = Heap.leftChild(i);
+        int left = HeapOrder.leftChild(i);
 
         // find right child node
-        int right = Heap.rightChild(i);
+        int right = HeapOrder.rightChild(i);
 
         // find the largest among 3 nodes
         int smallest = i;
 
         // check if the left node is larger than the current node
-        if (left <= size && heap[left] < heap[smallest]) {
+        if (left <= size && heap[left].priority< heap[smallest].priority) {
             smallest = left;
         }
 
         // check if the right node is larger than the current node 
         // and left node
-        if (right <= size && heap[right] < heap[smallest]) {
+        if (right <= size && heap[right].priority < heap[smallest].priority) {
             smallest = right;
         }
 
@@ -108,23 +73,23 @@ public class Heap {
         // and repeat this process until the current node is larger than 
         // the right and the left node
         if (smallest != i) {
-            int temp = heap[i];
+            Order temp = heap[i];
             heap[i] = heap[smallest];
             heap[smallest] = temp;
-            maxHeapify(smallest);
+            minHeapify(smallest);
         }
     }
 
 
     // returns the  maximum item of the heap
-    public int getMax()
+    public Order getMax()
     {
         //write your code here!
         return heap[0];
 
     }
 
-    public int getMin()
+    public Order getMin()
     {
         //write your code here!
         return heap[0];
@@ -141,12 +106,12 @@ public class Heap {
 
         // maintain the heap property by heapifying the 
         // first item
-        maxHeapify(i);
+        minHeapify(i);
         //return node;
     }
     
-    public int [] descending() {
-    	int [] res = new int [size];
+    public Order [] ascending() {
+    	Order [] res = new Order [size];
 
         //Write your code here!
         int resSize = res.Length;
@@ -163,15 +128,28 @@ public class Heap {
     // prints the heap
     public void printHeap() {
         for (int i = 0; i < size; i++) {
-            Console.Write(heap[i] + " ");
+            Console.Write("Priority: "+heap[i].priority + " ID: "+heap[i].orderID);
         }
         Console.WriteLine();
     }
     
-    public void printArray(int [] array) {
-    	foreach(int x in array) {
-    		Console.Write(x+" ");
+    public void printArray(Order [] array) {
+    	foreach(Order x in array) {
+    		Console.WriteLine("Priority: "+x.priority + " ID: "+x.orderID+" Description: "+x.orderDesciption);
     	}
     }
 
+}
+
+public class Order
+{
+    public int priority;
+    public int orderID;
+    public string orderDesciption; 
+    public Order (int priority, int orderID, string orderDesciption)
+    {   
+        this.priority = priority;
+        this.orderID = orderID;
+        this.orderDesciption = orderDesciption;
+    }
 }
