@@ -58,3 +58,4 @@ Console.WriteLine("Root: "+bh.getMin().priority);
 Order [] asc = bh.ascending();
 bh.printArray(asc);
 
+
